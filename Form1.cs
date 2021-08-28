@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,6 +19,15 @@ namespace foxhole_intelarty
     {
         DataTable mapTable = new DataTable();
 
+        Graphics graphics;
+
+        Point myPos = Point.Empty;
+        Point enemyPos = Point.Empty;
+
+        Pen greenPen = new Pen(Color.LightGreen, 2);
+        Pen redPen = new Pen(Color.Red, 2);
+        Pen blackPen = new Pen(Color.Black, 1);
+
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +40,7 @@ namespace foxhole_intelarty
 
         private void findMapTiles()
         {
-            
+
             mapTileCmb.DataSource = mapTable;
             mapTable.Columns.Add("name");
             mapTable.Columns.Add("location");
@@ -39,11 +49,11 @@ namespace foxhole_intelarty
 
             string envDir = Environment.CurrentDirectory;
             string imgDir = envDir + @"\warapi\Images\Maps\";
-            
+
             foreach (string location in Directory.GetFiles(imgDir))
             {
                 string filename = location.Replace(imgDir, "");
-                Regex newPattern = new Regex("Home|World");
+                Regex newPattern = new Regex("World");
 
                 if (!newPattern.IsMatch(filename))
                 {
@@ -65,45 +75,78 @@ namespace foxhole_intelarty
             var data = Marshal.UnsafeAddrOfPinnedArrayElement(img.Data, 0);
             var bitmap = new Bitmap(img.Width, img.Height, img.Stride, System.Drawing.Imaging.PixelFormat.Format32bppArgb, data);
             imgBoxMap.Image = bitmap;
-
             drawGrid(bitmap);
         }
 
         private void drawGrid(Bitmap bitmap)
         {
-            var origBitmap = bitmap;
-            Pen blackPen = new Pen(Color.Black, 1);
+            graphics = Graphics.FromImage(bitmap);
 
-            for (int x = 0; x < bitmap.Width; x += 59)
+            for (float x = 58.5f; x < bitmap.Width; x += 58.5f)
             {
-                int x1 = x;
-                int y1 = 0;
-                int x2 = x;
-                int y2 = bitmap.Height;
+                float x1 = x;
+                float y1 = 0;
+                float x2 = x;
+                float y2 = bitmap.Height;
 
-                using (var graphics = Graphics.FromImage(bitmap))
-                {
-                    graphics.DrawLine(blackPen, x1, y1, x2, y2);
-                }
+                graphics.DrawLine(blackPen, x1, y1, x2, y2);
             }
 
-            for (int y = 0; y < bitmap.Height; y += 59)
+            for (float y = 58.5f; y < bitmap.Height; y += 58.5f)
             {
-                int x1 = 0;
-                int y1 = y;
-                int x2 = bitmap.Width;
-                int y2 = y;
+                float x1 = 0;
+                float y1 = y;
+                float x2 = bitmap.Width;
+                float y2 = y;
 
-                using (var graphics = Graphics.FromImage(bitmap))
-                {
-                    graphics.DrawLine(blackPen, x1, y1, x2, y2);
-                }
+                graphics.DrawLine(blackPen, x1, y1, x2, y2);
             }
+        }
+
+        private float pix2m(float omin, float omax, float nmin, float nmax, float ovalue) {
+            float OldRange = (omax - omin);
+            float NewRange = (nmax - nmin);
+            float NewValue = (((ovalue - omin) * NewRange) / OldRange) + nmin;
+            return NewValue;
         }
 
         private void mapTileCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateImg();
+        }
+
+        private void imgBoxMap_MouseClick(object sender, MouseEventArgs e)
+        {
+            int circleSizeInt = 10;
+            Size circleSize = new Size(circleSizeInt, circleSizeInt);
+
+            if (e.Button == MouseButtons.Left)
+            {
+                updateImg();
+                myPos = new Point(e.X, e.Y);
+                graphics.DrawEllipse(greenPen, new Rectangle(myPos - (circleSize/2),circleSize));
+                imgBoxMap.Invalidate();
+            }
+            else if (e.Button == MouseButtons.Right && !myPos.IsEmpty)
+            {
+                updateImg();
+                enemyPos = new Point(e.X, e.Y);
+                graphics.DrawEllipse(greenPen, new Rectangle(myPos - (circleSize / 2), circleSize));
+                graphics.DrawEllipse(redPen, new Rectangle(enemyPos - (circleSize / 2), circleSize));
+                graphics.DrawLine(blackPen, myPos, enemyPos);
+                imgBoxMap.Invalidate();
+
+                double distancePx = Math.Sqrt(Math.Pow((enemyPos.X - myPos.X), 2) + Math.Pow((enemyPos.Y - myPos.Y), 2));
+                double distanceM = Math.Round(pix2m(0, 1024, 0, 2200, (float)distancePx),1);
+                dtsLbl.Text = "Distance: " + distanceM + "m";
+                double azi = Math.Atan2(myPos.Y - enemyPos.Y, myPos.X - enemyPos.X);
+                aziLbl.Text = "Azi: " + Math.Round(((((azi * 180) / Math.PI) + (360-90)) % 360) ,1) + "°";
+            }
+        }
+
+        private void imgBoxMap_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

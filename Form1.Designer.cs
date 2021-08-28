@@ -41,11 +41,14 @@ namespace foxhole_intelarty
             this.imgBoxMap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgBoxMap.Cursor = System.Windows.Forms.Cursors.Cross;
             this.imgBoxMap.Location = new System.Drawing.Point(12, 12);
             this.imgBoxMap.Name = "imgBoxMap";
             this.imgBoxMap.Size = new System.Drawing.Size(1163, 928);
             this.imgBoxMap.TabIndex = 0;
             this.imgBoxMap.TabStop = false;
+            this.imgBoxMap.Paint += new System.Windows.Forms.PaintEventHandler(this.imgBoxMap_Paint);
+            this.imgBoxMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imgBoxMap_MouseClick);
             // 
             // mapTileCmb
             // 
