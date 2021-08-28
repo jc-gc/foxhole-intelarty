@@ -65,6 +65,40 @@ namespace foxhole_intelarty
             var data = Marshal.UnsafeAddrOfPinnedArrayElement(img.Data, 0);
             var bitmap = new Bitmap(img.Width, img.Height, img.Stride, System.Drawing.Imaging.PixelFormat.Format32bppArgb, data);
             imgBoxMap.Image = bitmap;
+
+            drawGrid(bitmap);
+        }
+
+        private void drawGrid(Bitmap bitmap)
+        {
+            var origBitmap = bitmap;
+            Pen blackPen = new Pen(Color.Black, 1);
+
+            for (int x = 0; x < bitmap.Width; x += 59)
+            {
+                int x1 = x;
+                int y1 = 0;
+                int x2 = x;
+                int y2 = bitmap.Height;
+
+                using (var graphics = Graphics.FromImage(bitmap))
+                {
+                    graphics.DrawLine(blackPen, x1, y1, x2, y2);
+                }
+            }
+
+            for (int y = 0; y < bitmap.Height; y += 59)
+            {
+                int x1 = 0;
+                int y1 = y;
+                int x2 = bitmap.Width;
+                int y2 = y;
+
+                using (var graphics = Graphics.FromImage(bitmap))
+                {
+                    graphics.DrawLine(blackPen, x1, y1, x2, y2);
+                }
+            }
         }
 
         private void mapTileCmb_SelectedIndexChanged(object sender, EventArgs e)
