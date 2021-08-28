@@ -7,4 +7,118 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="warapi\Images\Maps\BGOneWorldMap.TGA" />
+    <None Remove="warapi\Images\Maps\MapAllodsBightHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapCallahansPassageHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapDeadlandsHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapDrownedValeHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapEndlessShoreHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapFarranacCoastHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapFishermansRowHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapGodcroftsHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapGreatMarchHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapHeartlandsHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapHomeRegionC.TGA" />
+    <None Remove="warapi\Images\Maps\MapHomeRegionW.TGA" />
+    <None Remove="warapi\Images\Maps\MapLinnMercyHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapLochMorHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapMarbanHollow.TGA" />
+    <None Remove="warapi\Images\Maps\MapMooringCountyHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapOarbreakerHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapReachingTrailHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapShackledChasmHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapStonecradleHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapTempestIslandHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapUmbralWildwoodHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapViperPitHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapWeatheredExpanseHex.TGA" />
+    <None Remove="warapi\Images\Maps\MapWestgateHex.TGA" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="warapi\Images\Maps\BGOneWorldMap.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapAllodsBightHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapCallahansPassageHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapDeadlandsHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapDrownedValeHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapEndlessShoreHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapFarranacCoastHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapFishermansRowHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapGodcroftsHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapGreatMarchHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapHeartlandsHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapHomeRegionC.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapHomeRegionW.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapLinnMercyHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapLochMorHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapMarbanHollow.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapMooringCountyHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapOarbreakerHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapReachingTrailHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapShackledChasmHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapStonecradleHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapTempestIslandHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapUmbralWildwoodHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapViperPitHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapWeatheredExpanseHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="warapi\Images\Maps\MapWestgateHex.TGA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pfim" Version="0.10.1" />
+  </ItemGroup>
+
 </Project>
