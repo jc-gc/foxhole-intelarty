@@ -11,11 +11,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroSet_UI.Forms;
 using Pfim;
 
 namespace foxhole_intelarty
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroSetForm
     {
         DataTable mapTable = new DataTable();
 
@@ -115,7 +116,7 @@ namespace foxhole_intelarty
             updateImg();
         }
 
-        private void imgBoxMap_MouseClick(object sender, MouseEventArgs e)
+        private void imgBoxMap_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             int circleSizeInt = 10;
             Size circleSize = new Size(circleSizeInt, circleSizeInt);
@@ -124,7 +125,7 @@ namespace foxhole_intelarty
             {
                 updateImg();
                 myPos = new Point(e.X, e.Y);
-                graphics.DrawEllipse(greenPen, new Rectangle(myPos - (circleSize/2),circleSize));
+                graphics.DrawEllipse(greenPen, new Rectangle(myPos - (circleSize / 2), circleSize));
                 imgBoxMap.Invalidate();
             }
             else if (e.Button == MouseButtons.Right && !myPos.IsEmpty)
@@ -137,17 +138,14 @@ namespace foxhole_intelarty
                 imgBoxMap.Invalidate();
 
                 double distancePx = Math.Sqrt(Math.Pow((enemyPos.X - myPos.X), 2) + Math.Pow((enemyPos.Y - myPos.Y), 2));
-                double distanceM = Math.Round(pix2m(0, 1024, 0, 2200, (float)distancePx),1);
+                double distanceM = Math.Round(pix2m(0, 1024, 0, 2200, (float)distancePx), 1);
                 dtsLbl.Text = "Distance: " + distanceM + "m";
                 double azi = Math.Atan2(myPos.Y - enemyPos.Y, myPos.X - enemyPos.X);
-                aziLbl.Text = "Azi: " + Math.Round(((((azi * 180) / Math.PI) + (360-90)) % 360) ,1) + "°";
+                aziLbl.Text = "Azi: " + Math.Round(((((azi * 180) / Math.PI) + (360 - 90)) % 360), 1) + "°";
             }
         }
 
-        private void imgBoxMap_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }
  
