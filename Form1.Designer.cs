@@ -47,9 +47,10 @@ namespace foxhole_intelarty
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.imgBoxMap.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.imgBoxMap.Location = new System.Drawing.Point(15, 78);
+            this.imgBoxMap.Location = new System.Drawing.Point(13, 74);
+            this.imgBoxMap.Margin = new System.Windows.Forms.Padding(2);
             this.imgBoxMap.Name = "imgBoxMap";
-            this.imgBoxMap.Size = new System.Drawing.Size(1068, 922);
+            this.imgBoxMap.Size = new System.Drawing.Size(961, 876);
             this.imgBoxMap.TabIndex = 0;
             this.imgBoxMap.TabStop = false;
             this.imgBoxMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imgBoxMap_MouseClick);
@@ -74,13 +75,14 @@ namespace foxhole_intelarty
             this.mapTileCmb.IntegralHeight = false;
             this.mapTileCmb.IsDerivedStyle = true;
             this.mapTileCmb.ItemHeight = 40;
-            this.mapTileCmb.Location = new System.Drawing.Point(598, 15);
+            this.mapTileCmb.Location = new System.Drawing.Point(538, 14);
+            this.mapTileCmb.Margin = new System.Windows.Forms.Padding(2);
             this.mapTileCmb.MaxDropDownItems = 16;
             this.mapTileCmb.Name = "mapTileCmb";
             this.mapTileCmb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mapTileCmb.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.mapTileCmb.SelectedItemForeColor = System.Drawing.Color.White;
-            this.mapTileCmb.Size = new System.Drawing.Size(485, 46);
+            this.mapTileCmb.Size = new System.Drawing.Size(437, 46);
             this.mapTileCmb.Style = MetroSet_UI.Enums.Style.Dark;
             this.mapTileCmb.StyleManager = null;
             this.mapTileCmb.TabIndex = 4;
@@ -93,8 +95,9 @@ namespace foxhole_intelarty
             this.dtsLbl.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtsLbl.IsDerivedStyle = true;
             this.dtsLbl.Location = new System.Drawing.Point(0, 0);
+            this.dtsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dtsLbl.Name = "dtsLbl";
-            this.dtsLbl.Size = new System.Drawing.Size(265, 46);
+            this.dtsLbl.Size = new System.Drawing.Size(291, 44);
             this.dtsLbl.Style = MetroSet_UI.Enums.Style.Dark;
             this.dtsLbl.StyleManager = null;
             this.dtsLbl.TabIndex = 5;
@@ -108,8 +111,9 @@ namespace foxhole_intelarty
             this.aziLbl.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.aziLbl.IsDerivedStyle = true;
             this.aziLbl.Location = new System.Drawing.Point(0, 0);
+            this.aziLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.aziLbl.Name = "aziLbl";
-            this.aziLbl.Size = new System.Drawing.Size(265, 46);
+            this.aziLbl.Size = new System.Drawing.Size(222, 44);
             this.aziLbl.Style = MetroSet_UI.Enums.Style.Dark;
             this.aziLbl.StyleManager = null;
             this.aziLbl.TabIndex = 6;
@@ -121,10 +125,11 @@ namespace foxhole_intelarty
             // metroSetDivider1
             // 
             this.metroSetDivider1.IsDerivedStyle = true;
-            this.metroSetDivider1.Location = new System.Drawing.Point(15, 67);
+            this.metroSetDivider1.Location = new System.Drawing.Point(13, 64);
+            this.metroSetDivider1.Margin = new System.Windows.Forms.Padding(2);
             this.metroSetDivider1.Name = "metroSetDivider1";
             this.metroSetDivider1.Orientation = MetroSet_UI.Enums.DividerStyle.Horizontal;
-            this.metroSetDivider1.Size = new System.Drawing.Size(1089, 4);
+            this.metroSetDivider1.Size = new System.Drawing.Size(980, 4);
             this.metroSetDivider1.Style = MetroSet_UI.Enums.Style.Dark;
             this.metroSetDivider1.StyleManager = null;
             this.metroSetDivider1.TabIndex = 7;
@@ -140,9 +145,10 @@ namespace foxhole_intelarty
             this.metroSetPanel1.BorderThickness = 1;
             this.metroSetPanel1.Controls.Add(this.dtsLbl);
             this.metroSetPanel1.IsDerivedStyle = true;
-            this.metroSetPanel1.Location = new System.Drawing.Point(15, 15);
+            this.metroSetPanel1.Location = new System.Drawing.Point(13, 14);
+            this.metroSetPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.metroSetPanel1.Name = "metroSetPanel1";
-            this.metroSetPanel1.Size = new System.Drawing.Size(325, 46);
+            this.metroSetPanel1.Size = new System.Drawing.Size(293, 44);
             this.metroSetPanel1.Style = MetroSet_UI.Enums.Style.Dark;
             this.metroSetPanel1.StyleManager = null;
             this.metroSetPanel1.TabIndex = 8;
@@ -156,9 +162,10 @@ namespace foxhole_intelarty
             this.metroSetPanel2.BorderThickness = 1;
             this.metroSetPanel2.Controls.Add(this.aziLbl);
             this.metroSetPanel2.IsDerivedStyle = true;
-            this.metroSetPanel2.Location = new System.Drawing.Point(346, 15);
+            this.metroSetPanel2.Location = new System.Drawing.Point(312, 14);
+            this.metroSetPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.metroSetPanel2.Name = "metroSetPanel2";
-            this.metroSetPanel2.Size = new System.Drawing.Size(246, 46);
+            this.metroSetPanel2.Size = new System.Drawing.Size(222, 44);
             this.metroSetPanel2.Style = MetroSet_UI.Enums.Style.Dark;
             this.metroSetPanel2.StyleManager = null;
             this.metroSetPanel2.TabIndex = 8;
@@ -167,21 +174,25 @@ namespace foxhole_intelarty
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1098, 1015);
+            this.ClientSize = new System.Drawing.Size(988, 964);
             this.Controls.Add(this.metroSetPanel2);
             this.Controls.Add(this.metroSetPanel1);
             this.Controls.Add(this.metroSetDivider1);
             this.Controls.Add(this.mapTileCmb);
             this.Controls.Add(this.imgBoxMap);
+            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(12, 90, 12, 12);
+            this.Padding = new System.Windows.Forms.Padding(11, 86, 11, 12);
             this.ShowLeftRect = false;
             this.ShowTitle = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Style = MetroSet_UI.Enums.Style.Dark;
-            this.Text = "FORM1";
+            this.Text = "Foxhole-IntelArty (WolfyXK)";
             this.TextColor = System.Drawing.Color.White;
             this.ThemeName = "MetroDark";
             this.Load += new System.EventHandler(this.Form1_Load);
