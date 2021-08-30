@@ -1,6 +1,6 @@
 # foxhole-intelarty
 
-Currently creating a C# winforms version of my previously abandoned project (https://github.com/wolfyxk/Foxhole-NoSpotterArty)
+Currently creating a C# .net version of my previously abandoned project (https://github.com/wolfyxk/Foxhole-NoSpotterArty)
 
 Description: Visual version of a foxhole artillery calculator app.
 
