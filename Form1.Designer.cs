@@ -33,7 +33,6 @@ namespace foxhole_intelarty
             this.mapTileCmb = new MetroSet_UI.Controls.MetroSetComboBox();
             this.dtsLbl = new MetroSet_UI.Controls.MetroSetLabel();
             this.aziLbl = new MetroSet_UI.Controls.MetroSetLabel();
-            this.metroSetDivider1 = new MetroSet_UI.Controls.MetroSetDivider();
             this.metroSetPanel1 = new MetroSet_UI.Controls.MetroSetPanel();
             this.metroSetPanel2 = new MetroSet_UI.Controls.MetroSetPanel();
             ((System.ComponentModel.ISupportInitialize)(this.imgBoxMap)).BeginInit();
@@ -50,7 +49,7 @@ namespace foxhole_intelarty
             this.imgBoxMap.Location = new System.Drawing.Point(13, 74);
             this.imgBoxMap.Margin = new System.Windows.Forms.Padding(2);
             this.imgBoxMap.Name = "imgBoxMap";
-            this.imgBoxMap.Size = new System.Drawing.Size(961, 876);
+            this.imgBoxMap.Size = new System.Drawing.Size(1080, 941);
             this.imgBoxMap.TabIndex = 0;
             this.imgBoxMap.TabStop = false;
             this.imgBoxMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imgBoxMap_MouseClick);
@@ -75,7 +74,7 @@ namespace foxhole_intelarty
             this.mapTileCmb.IntegralHeight = false;
             this.mapTileCmb.IsDerivedStyle = true;
             this.mapTileCmb.ItemHeight = 40;
-            this.mapTileCmb.Location = new System.Drawing.Point(538, 14);
+            this.mapTileCmb.Location = new System.Drawing.Point(657, 14);
             this.mapTileCmb.Margin = new System.Windows.Forms.Padding(2);
             this.mapTileCmb.MaxDropDownItems = 16;
             this.mapTileCmb.Name = "mapTileCmb";
@@ -122,22 +121,6 @@ namespace foxhole_intelarty
             this.aziLbl.ThemeAuthor = "Narwin";
             this.aziLbl.ThemeName = "MetroDark";
             // 
-            // metroSetDivider1
-            // 
-            this.metroSetDivider1.IsDerivedStyle = true;
-            this.metroSetDivider1.Location = new System.Drawing.Point(13, 64);
-            this.metroSetDivider1.Margin = new System.Windows.Forms.Padding(2);
-            this.metroSetDivider1.Name = "metroSetDivider1";
-            this.metroSetDivider1.Orientation = MetroSet_UI.Enums.DividerStyle.Horizontal;
-            this.metroSetDivider1.Size = new System.Drawing.Size(980, 4);
-            this.metroSetDivider1.Style = MetroSet_UI.Enums.Style.Dark;
-            this.metroSetDivider1.StyleManager = null;
-            this.metroSetDivider1.TabIndex = 7;
-            this.metroSetDivider1.Text = "metroSetDivider1";
-            this.metroSetDivider1.ThemeAuthor = "Narwin";
-            this.metroSetDivider1.ThemeName = "MetroDark";
-            this.metroSetDivider1.Thickness = 1;
-            // 
             // metroSetPanel1
             // 
             this.metroSetPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -174,13 +157,12 @@ namespace foxhole_intelarty
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(988, 964);
+            this.ClientSize = new System.Drawing.Size(1107, 1029);
             this.Controls.Add(this.metroSetPanel2);
             this.Controls.Add(this.metroSetPanel1);
-            this.Controls.Add(this.metroSetDivider1);
             this.Controls.Add(this.mapTileCmb);
             this.Controls.Add(this.imgBoxMap);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
@@ -209,7 +191,6 @@ namespace foxhole_intelarty
         private MetroSet_UI.Controls.MetroSetComboBox mapTileCmb;
         private MetroSet_UI.Controls.MetroSetLabel dtsLbl;
         private MetroSet_UI.Controls.MetroSetLabel aziLbl;
-        private MetroSet_UI.Controls.MetroSetDivider metroSetDivider1;
         private MetroSet_UI.Controls.MetroSetPanel metroSetPanel1;
         private MetroSet_UI.Controls.MetroSetPanel metroSetPanel2;
     }

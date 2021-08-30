@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -27,7 +28,8 @@ namespace foxhole_intelarty
 
         Pen greenPen = new Pen(Color.LightGreen, 2);
         Pen redPen = new Pen(Color.Red, 2);
-        Pen blackPen = new Pen(Color.Black, 1);
+        Pen blackPen1 = new Pen(Color.FromArgb(75,0,0,0), 1);
+        Pen blackPen2 = new Pen(Color.FromArgb(140, 0, 0, 0), 2);
 
         public Form1()
         {
@@ -48,18 +50,23 @@ namespace foxhole_intelarty
             mapTileCmb.ValueMember = "location";
             mapTileCmb.DisplayMember = "name";
 
-            string envDir = Environment.CurrentDirectory;
-            string imgDir = envDir + @"\warapi\Images\Maps\";
+            Assembly myAssembly = Assembly.GetExecutingAssembly();
+            string[] resources = myAssembly.GetManifestResourceNames().Where(str => str.Contains(".TGA")).ToArray();
+            string imgResourceDir = "foxhole_intelarty.warapi.Images.Maps.";
 
-            foreach (string location in Directory.GetFiles(imgDir))
+
+            foreach (string resource in resources)
             {
-                string filename = location.Replace(imgDir, "");
+                Debug.WriteLine(resource);
+
+
+                string filename = resource.Replace(imgResourceDir, "");
                 Regex newPattern = new Regex("World");
 
                 if (!newPattern.IsMatch(filename))
                 {
                     DataRow newrow = mapTable.NewRow();
-                    newrow["location"] = location;
+                    newrow["location"] = resource;
                     string name = Regex.Replace(filename, "Hex|.TGA|Map", "");
                     name = Regex.Replace(name, "([a-z])([A-Z])", "$1 $2");
                     newrow["name"] = name;
@@ -72,7 +79,13 @@ namespace foxhole_intelarty
         private void updateImg()
         {
             int curIndex = mapTileCmb.SelectedIndex;
-            var img = Pfim.Pfim.FromFile(mapTable.Rows[curIndex]["location"].ToString());
+
+            Debug.WriteLine(mapTable.Rows[mapTileCmb.SelectedIndex][0].ToString());
+
+            Assembly myAssembly = Assembly.GetExecutingAssembly();
+            Stream myStream = myAssembly.GetManifestResourceStream(mapTable.Rows[mapTileCmb.SelectedIndex][1].ToString());
+            
+            var img = Pfim.Pfim.FromStream(myStream);
             var data = Marshal.UnsafeAddrOfPinnedArrayElement(img.Data, 0);
             var bitmap = new Bitmap(img.Width, img.Height, img.Stride, System.Drawing.Imaging.PixelFormat.Format32bppArgb, data);
             imgBoxMap.Image = bitmap;
@@ -83,24 +96,34 @@ namespace foxhole_intelarty
         {
             graphics = Graphics.FromImage(bitmap);
 
-            for (float x = 58.5f; x < bitmap.Width; x += 58.5f)
+            for (float x = 0; x < bitmap.Width; x += 58.5f)
             {
                 float x1 = x;
                 float y1 = 0;
                 float x2 = x;
                 float y2 = bitmap.Height;
 
-                graphics.DrawLine(blackPen, x1, y1, x2, y2);
+                graphics.DrawLine(blackPen2, x1, y1, x2, y2);
+
+                for (float subX = x + 19.5f; subX < x + (19.5f * 3); subX += 19.5f)
+                {
+                    graphics.DrawLine(blackPen1, subX, y1, subX, y2);
+                }
             }
 
-            for (float y = 58.5f; y < bitmap.Height; y += 58.5f)
+            for (float y = 0; y < bitmap.Height; y += 58.5f)
             {
                 float x1 = 0;
                 float y1 = y;
                 float x2 = bitmap.Width;
                 float y2 = y;
 
-                graphics.DrawLine(blackPen, x1, y1, x2, y2);
+                graphics.DrawLine(blackPen2, x1, y1, x2, y2);
+
+                for (float subY = y + 19.5f; subY < y + (19.5f * 3); subY += 19.5f)
+                {
+                    graphics.DrawLine(blackPen1, x1, subY, x2, subY);
+                }
             }
         }
 
@@ -129,7 +152,7 @@ namespace foxhole_intelarty
                 enemyPos = new Point(e.X, e.Y);
                 graphics.DrawEllipse(greenPen, new Rectangle(myPos - (circleSize / 2), circleSize));
                 graphics.DrawEllipse(redPen, new Rectangle(enemyPos - (circleSize / 2), circleSize));
-                graphics.DrawLine(blackPen, myPos, enemyPos);
+                graphics.DrawLine(blackPen1, myPos, enemyPos);
                 imgBoxMap.Invalidate();
 
                 double distancePx = Math.Sqrt(Math.Pow((enemyPos.X - myPos.X), 2) + Math.Pow((enemyPos.Y - myPos.Y), 2));
