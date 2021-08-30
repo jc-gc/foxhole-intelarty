@@ -111,11 +111,6 @@ namespace foxhole_intelarty
             return NewValue;
         }
 
-        private void mapTileCmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateImg();
-        }
-
         private void imgBoxMap_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             int circleSizeInt = 10;
@@ -145,7 +140,10 @@ namespace foxhole_intelarty
             }
         }
 
-
+        private void mapTileCmb_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            updateImg();
+        }
     }
 }
  
